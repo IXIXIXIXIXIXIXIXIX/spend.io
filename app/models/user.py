@@ -1,6 +1,7 @@
 class User:
 
-    def __init__(self, name, budget):
+    def __init__(self, name, budget, id=None):
+        self.id = id
         self.name = name
         self.budget = budget
         self.remaining_budget = budget
