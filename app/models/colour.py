@@ -1,5 +1,5 @@
 class Colour:
 
-    def __init__(self, colourname, id=None):
-        self.colourname = colourname
+    def __init__(self, name, id=None):
+        self.name = name
         self.id = id

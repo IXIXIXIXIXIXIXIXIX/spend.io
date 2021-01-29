@@ -13,7 +13,7 @@ CREATE TABLE users (
 
 CREATE TABLE colours (
     id SERIAL PRIMARY KEY,
-    colourname VARCHAR(255)
+    name VARCHAR(255)
 );
 
 CREATE TABLE tags (

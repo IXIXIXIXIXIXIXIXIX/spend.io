@@ -7,4 +7,4 @@ class TestColour(unittest.TestCase):
         self.colour = Colour("black")
 
     def test_colour_has_name(self):
-        self.assertEqual("black", self.colour.colourname)
+        self.assertEqual("black", self.colour.name)
