@@ -1,3 +1,5 @@
+from app.models.view_filter import ViewFilter
+
 class User:
 
     def __init__(self, name, budget, id=None):
@@ -5,9 +7,10 @@ class User:
         self.name = name
         self.budget = budget
         self.remaining_budget = budget
+        self.view_filter = ViewFilter()
 
-    def register_spending(self, amount):
-        self.remaining_budget -= amount
+    def register_spending(self, transaction):
+        self.remaining_budget -= transaction.amount
         return self.remaining_budget
 
     def reset_budget(self):
