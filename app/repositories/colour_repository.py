@@ -1,4 +1,3 @@
-
 from app.db.run_sql import run_sql
 from app.models.colour import Colour
 
