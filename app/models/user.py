@@ -2,11 +2,15 @@ from app.models.view_filter import ViewFilter
 
 class User:
 
-    def __init__(self, name, budget, id=None):
+    def __init__(self, name, budget, remaining_budget = None, id=None):
         self.id = id
         self.name = name
         self.budget = budget
-        self.remaining_budget = budget
+        if remaining_budget is not None:
+            self.remaining_budget = remaining_budget
+        else:
+            self.remaining_budget = budget
+
         self.view_filter = ViewFilter()
 
     def register_spending(self, transaction):

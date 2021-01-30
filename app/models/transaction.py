@@ -13,4 +13,6 @@ class Transaction:
         else:
             self.tag = tag
 
+    def change_tag(self, tag):
+        self.tag = tag
 

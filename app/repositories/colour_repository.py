@@ -2,7 +2,7 @@ from app.db.run_sql import run_sql
 from app.models.colour import Colour
 
 def save(colour):
-    sql = "INSERT INTO colours(name) VALUES (%s, %s) RETURNING id"
+    sql = "INSERT INTO colours (name) VALUES (%s) RETURNING *"
     values = [colour.name]
     results = run_sql(sql, values)
     colour.id = results[0]['id']
@@ -25,6 +25,17 @@ def select(id):
 
     sql = "SELECT * FROM colours WHERE id = %s"
     values = [id]
+    result = run_sql(sql, values)[0]
+
+    if result is not None:
+        colour = Colour(result['name'], result['id'])
+    return colour
+
+def select_by_name(name):
+    colour = None
+
+    sql = "SELECT * FROM colours WHERE name = %s"
+    values = [name]
     result = run_sql(sql, values)[0]
 
     if result is not None:

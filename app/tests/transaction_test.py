@@ -32,3 +32,6 @@ class TestTransaction(unittest.TestCase):
     def test_transaction_has_non_default_tag(self):
         self.assertEqual(self.tag2, self.transaction2.tag)
 
+    def test_transaction_change_tag(self):
+        self.transaction.change_tag(self.tag2)
+        self.assertEqual(self.tag2, self.transaction.tag)

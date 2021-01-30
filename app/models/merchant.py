@@ -1,10 +1,10 @@
 class Merchant:
 
-    def __init__(self, name, default_tag, id=None):
+    def __init__(self, name, default_tag, active = True, id = None):
         self.name = name.upper()
         self.default_tag = default_tag
         self.id = id
-        self.active = True
+        self.active = active
 
 
     def deactivate(self):

@@ -28,19 +28,19 @@ CREATE TABLE merchants (
     id SERIAL PRIMARY KEY,
     name VARCHAR(255),
     active BOOLEAN,
-    default_tag INT REFERENCES tags(id)
+    default_tag_id INT REFERENCES tags(id)
 );
 
 CREATE TABLE transactions (
     id SERIAL PRIMARY KEY,
     merchant_id INT REFERENCES merchants(id),
-    tag INT REFERENCES tags(id),
+    tag_id INT REFERENCES tags(id),
     datestamp DATE,
     amount NUMERIC
 );
 
-INSERT INTO colours(colourname) VALUES ('black');
-INSERT INTO colours (colourname) VALUES ('red');
-INSERT INTO colours (colourname) VALUES ('green');
-INSERT INTO colours (colourname) VALUES ('blue');
-INSERT INTO colours (colourname) VALUES ('purple');
+-- INSERT INTO colours (name) VALUES ('black');
+-- INSERT INTO colours (name) VALUES ('red');
+-- INSERT INTO colours (name) VALUES ('green');
+-- INSERT INTO colours (name) VALUES ('blue');
+-- INSERT INTO colours (name) VALUES ('purple');
