@@ -1,6 +1,4 @@
-
 from app.db.run_sql import run_sql
-from app.models.view_filter import ViewFilter
 from app.models.user import User
 
 def save(user):
@@ -31,7 +29,6 @@ def select(id):
         user = User(result['name'], result['budget'], result['id'])
 
     return user
-
 
 def delete_all():
     sql = "DELETE FROM users"
