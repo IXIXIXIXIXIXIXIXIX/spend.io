@@ -1,0 +1,17 @@
+
+.custom_btn {
+
+    font-family: 'Spectral', serif;
+    background-color: lightslategray;
+    color:black;
+    padding: 5px 10px;
+    text-decoration: none;
+    border: black solid 1px;
+    border-radius: 25px;
+}
+
+.custom_btn:hover {
+    color: darkgray;
+    background-color: slategrey;
+    border: grey solid 1px;
+}

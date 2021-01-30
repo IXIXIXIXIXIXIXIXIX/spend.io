@@ -1,0 +1,152 @@
+body {
+    background-color: white;
+    margin: 0px;
+    height: 100vh;
+}
+
+main {
+    display:flex;
+    justify-content: space-around;
+    /* min-height: calc(100vh - 115px); */
+
+}
+
+header {
+    display: grid;
+    grid-template-columns: 9fr 1fr;
+    background-color: #8ed4ba; 
+    font-family: 'Spectral', serif;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+}
+
+#header_main {
+    font-size: xx-large;
+    margin-left: 16px;
+}
+#logo {
+    grid-column-start: 1;
+}
+
+.styled_link {
+    text-decoration: none;
+    color: black;
+}
+
+nav {
+    grid-column-start: 2;
+    vertical-align:middle;
+    padding-top: 15px;
+}
+
+footer {
+    flex-shrink: 0;
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 20px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: lightslategrey;
+    font-family: 'Spectral SC', serif;
+}
+
+
+.player_form_container {
+
+    display: block;
+    font-family: 'Poppins', sans-serif;
+    background-color: lightslategray;
+    margin-top: 100px;
+    margin-bottom: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
+    width: 450px;
+    box-shadow: 5px 5px lightgray;
+}
+
+.player_title {
+    margin: 10px;
+}
+.form_subhead {
+    margin-bottom: 5px;
+    margin-left: 10px;
+}
+#player_form_container  > form > label {
+    margin: 10px;
+}
+
+.name_label {
+    margin:10px;
+}
+
+.game_group {
+    margin:10px;
+}
+
+.btn_container {
+    text-align: center;
+    padding: 20px;
+}
+
+.body_btn {
+    padding: 5px 15px;
+    margin: 10px;
+}
+
+.rules_box {
+    font-family: 'Spectral', serif;
+    font-size: xx-large;
+    text-align: center;
+    padding: 20px;
+}
+/* Settings for choice inspired by: https://www.filamentgroup.com/lab/select-css.html */
+.choice {
+    display: block;
+	font-size: 16px;
+	font-weight: 700;
+	color: #444;
+	line-height: 1.3;
+	padding: .6em 1.4em .5em .8em;
+	width: 80%;
+	max-width: 100%;
+	box-sizing: border-box;
+    margin: 10px;
+	border: 1px solid #aaa;
+	box-shadow: 0 1px 0 1px rgba(0,0,0,.04);
+	border-radius: .5em;
+
+}
+
+.shrinkable_box {
+    height: fit-content;
+}
+
+.result_button_container {
+
+    display: flex;
+    justify-content: center;
+}
+
+.results_reveal {
+    display: flex;
+    justify-content: space-around;
+}
+
+.intro_box {
+    font-family: 'Spectral', serif;
+    padding: 20;
+}
+
+.intro_head {
+    font-size: xx-large;
+    margin: 10px;
+}
+
+.intro_content {
+    margin: 10px;
+}
+.caps {
+    font-family: 'Spectral SC', serif;
+}
