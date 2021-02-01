@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="player_form_container shrinkable_box">
+<div class="transactions_panel left_panel primary_colour">
     <h2 class="player_title"></h2>
     <p class="player_title">
         Score:}
@@ -17,13 +17,23 @@
             </select>
             <input type="submit" value="Choose" class="custom_btn body_btn">
         </form>
-   
-
 </div>
+
 
 <div class="transaction_container">
     {% for transaction in transactions %}
-        <div class="transaction_box">{{ transaction.date }} {{ transaction.merchant.name }} {{transaction.amount }} {{transaction.tag.name}}</div>
+        <a href="/transactions/{{ transaction.id }}/edit" class="list_link_dedecorate">
+            <div class="transaction_box {{ transaction.tag.colour.name }}">
+                <span class="list_date">{{ transaction.date }}</span> 
+                <span class="list_name">{{ transaction.merchant.name }}</span> 
+                <span class="tag_spacer">
+                    {% if transaction.tag.name != "Untagged" %}
+                        <span class="taglabel">{{transaction.tag.name}}</span>
+                    {% endif %}
+                </span>
+                <span class="amount">£{{transaction.amount }}</span></div>
+        </a>
     {% endfor %}
 </div>
+<div class="transactions_panel right_panel primary_colour"><h1>Stats</h1></div>
 {% endblock %}

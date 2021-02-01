@@ -1,0 +1,120 @@
+.black {
+    border: black solid 2px;
+}
+
+.black:hover {
+    border: lightgrey solid 2px;
+    background-color: lightgrey;
+}
+
+.black .taglabel {
+
+    background-color: black;
+    color: white;
+}
+
+/* RED TAGS */
+
+.red {
+    border: red solid 2px;
+}
+
+.red:hover {
+    border: red solid 2px;
+    background-color: red;
+}
+
+.red .taglabel {
+
+    background-color: red;
+    color: black;
+}
+
+/* GREEN TAGS */
+.green {
+    border: green solid 2px;
+}
+
+.green:hover {
+    border: green solid 2px;
+    background-color: green;
+}
+
+.green .taglabel {
+
+    background-color: green;
+    color: black;
+}
+
+.blue {
+    border: #95d0fc solid 2px;
+}
+
+.blue:hover {
+    border: #95d0fc solid 2px;
+    background-color: #95d0fc;
+}
+
+.blue .taglabel {
+
+    background-color: #95d0fc;
+    color: black;
+}
+
+.yellow {
+    border: yellow solid 2px;
+}
+
+.yellow:hover {
+    border: yellow solid 2px;
+    background-color: yellow;
+}
+
+.red .taglabel {
+
+    background-color: red;
+    color: black;
+}
+.purple {
+    border: purple solid 2px;
+}
+
+.purple:hover {
+    border: purple solid 2px;
+    background-color: purple;
+}
+
+.red .taglabel {
+
+    background-color: red;
+    color: black;
+}
+.pink {
+    border: hotpink solid 2px;
+}
+
+.pink:hover {
+    border: hotpink solid 2px;
+    background-color: hotpink;
+}
+
+.red .taglabel {
+
+    background-color: red;
+    color: black;
+}
+.deepblue {
+    border: navy solid 2px;
+}
+
+.deepblue:hover {
+    border: navy solid 2px;
+    background-color: navy;
+    color: white;
+}
+
+.deepblue .taglabel {
+
+    background-color: navy;
+    color: white;
+}

@@ -1,17 +1,57 @@
 
 .custom_btn {
 
-    font-family: 'Spectral', serif;
-    background-color: lightslategray;
+    font-family: 'Fira Sans', sans-serif;
+    background-color: cadetblue;
     color:black;
     padding: 5px 10px;
     text-decoration: none;
-    border: black solid 1px;
+    border: black solid 2px;
     border-radius: 25px;
 }
 
 .custom_btn:hover {
-    color: darkgray;
-    background-color: slategrey;
-    border: grey solid 1px;
+    background-color: #408090;
+    border: grey solid 2px;
 }
+/* Settings for choice inspired by: https://www.filamentgroup.com/lab/select-css.html */
+.choice {
+    display: block;
+	font-size: 15px;
+	font-weight: 699;
+	color: #443;
+	line-height: 0.3;
+	padding: .5em 1.4em .5em .8em;
+	width: 79%;
+	max-width: 99%;
+	box-sizing: border-box;
+    margin: 9px;
+	border: 0px solid #aaa;
+	box-shadow: -1 1px 0 1px rgba(0,0,0,.04);
+	border-radius: .4em;
+
+}
+
+
+/* Scrollbar settings */
+  /* width */
+::-webkit-scrollbar {
+    width: 9px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f0f1f1;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: cadetblue;
+    border-radius: 4px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #408090;
+  } 
+

@@ -1,33 +1,57 @@
  .transaction_box {
 
-    height: 10vh;
+    display: flex;
+    justify-content: flex-end;
+    text-align: left;
+    padding: 10px;
+    margin: 5px 100px;
+    border-radius: 10px;
  }
 
  .transaction_container {
-    height: 80vh;
-    /* margin: 5vh; */
+    flex-grow: 4;
+    height: 70vh;
+    margin: 50px 50px 100px 50px;
     overflow-x:hidden;
     overflow-y: auto;
-    text-align: center;
+    background-color: white;
 
  }
 
-  /* width */
-::-webkit-scrollbar {
-    width: 10px;
-  }
-  
-  /* Track */
-  ::-webkit-scrollbar-track {
-    background: #f1f1f1;
-  }
-  
-  /* Handle */
-  ::-webkit-scrollbar-thumb {
-    background: #8ed4ba;
-  }
-  
-  /* Handle on hover */
-  ::-webkit-scrollbar-thumb:hover {
-    background: #70c0a0;
-  } 
+ .list_date {
+     flex-basis: 100px;
+     flex-grow: 1;
+     font-family: 'Fira Sans', sans-serif;
+ }
+ 
+ .list_name {
+     flex-basis:100px;
+     flex-grow: 1;
+     font-family: 'Fira Sans', sans-serif;
+ }
+
+ .tag_spacer {
+     flex-basis: 100px;
+     text-align: left;
+     flex-grow: 1;
+ }
+
+.taglabel {
+    font-family: 'Fira Sans', sans-serif;
+    font-size: x-small;
+    padding: 5px;
+    border-radius: 3px;
+    text-align: left;
+}
+
+.amount {
+    flex-grow: 1;
+    text-align: right;
+}
+
+
+
+.list_link_dedecorate {
+    text-decoration: none;
+    color: inherit;
+}

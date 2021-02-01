@@ -36,7 +36,7 @@ CREATE TABLE transactions (
     merchant_id INT REFERENCES merchants(id),
     tag_id INT REFERENCES tags(id),
     datestamp DATE,
-    amount NUMERIC
+    amount NUMERIC(12,2)
 );
 
 -- INSERT INTO colours (name) VALUES ('black');

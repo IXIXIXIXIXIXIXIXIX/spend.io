@@ -6,7 +6,7 @@ body {
 
 main {
     display:flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
     /* min-height: calc(100vh - 115px); */
 
 }
@@ -14,17 +14,27 @@ main {
 header {
     display: grid;
     grid-template-columns: 9fr 1fr;
-    background-color: #8ed4ba; 
-    font-family: 'Spectral', serif;
+    font-family: 'Fira Sans', sans-serif;
     padding-top: 20px;
     padding-bottom: 20px;
     margin-bottom: 30px;
 }
 
+.primary_colour {
+    background-color: cadetblue;
+}
 #header_main {
     font-size: xx-large;
     margin-left: 16px;
 }
+
+#header_zero {
+
+    font-size: xx-large;
+    margin-left: 16px;
+    font-family: 'Fira Code', monospace;
+}
+
 #logo {
     grid-column-start: 1;
 }
@@ -48,22 +58,29 @@ footer {
     position: absolute;
     bottom: 0;
     width: 100%;
-    background-color: lightslategrey;
     font-family: 'Spectral SC', serif;
 }
 
 
-.player_form_container {
+.transactions_panel {
 
     display: block;
-    font-family: 'Poppins', sans-serif;
-    background-color: lightslategray;
-    margin-top: 100px;
-    margin-bottom: 5px;
-    margin-left: 5px;
-    margin-right: 5px;
-    width: 450px;
+    font-family: 'Fira Sans', sans-serif;
+    height: fit-content;
+    margin: 50px 30px 50px 30px;
+    overflow-x:hidden;
+    overflow-y: auto;
     box-shadow: 5px 5px lightgray;
+}
+
+.left_panel {
+
+    flex-grow: 1;
+}
+
+.right_panel {
+    flex-grow:1;
+    max-width: 200px;
 }
 
 .player_title {
@@ -100,27 +117,6 @@ footer {
     font-size: xx-large;
     text-align: center;
     padding: 20px;
-}
-/* Settings for choice inspired by: https://www.filamentgroup.com/lab/select-css.html */
-.choice {
-    display: block;
-	font-size: 16px;
-	font-weight: 700;
-	color: #444;
-	line-height: 1.3;
-	padding: .6em 1.4em .5em .8em;
-	width: 80%;
-	max-width: 100%;
-	box-sizing: border-box;
-    margin: 10px;
-	border: 1px solid #aaa;
-	box-shadow: 0 1px 0 1px rgba(0,0,0,.04);
-	border-radius: .5em;
-
-}
-
-.shrinkable_box {
-    height: fit-content;
 }
 
 .result_button_container {

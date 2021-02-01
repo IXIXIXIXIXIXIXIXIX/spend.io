@@ -7,6 +7,7 @@ class Transaction:
         self.amount = amount
         self.merchant = merchant
         self.date = date
+        self.id = id
 
         if tag is None:
             self.tag = merchant.default_tag

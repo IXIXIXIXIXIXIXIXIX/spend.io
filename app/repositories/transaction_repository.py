@@ -20,7 +20,7 @@ def select_all():
     for row in results:
         tag = tag_repository.select(row['tag_id'])
         merchant = merchant_repository.select(row['merchant_id'])
-        transaction = Transaction(merchant, row['amount'], row['datestamp'], tag)
+        transaction = Transaction(merchant, row['amount'], row['datestamp'], tag, row['id'])
         transactions.append(transaction)
 
     return transactions 
