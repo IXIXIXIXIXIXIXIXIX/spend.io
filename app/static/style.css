@@ -28,13 +28,6 @@ header {
     margin-left: 16px;
 }
 
-#header_zero {
-
-    font-size: xx-large;
-    margin-left: 16px;
-    font-family: 'Fira Code', monospace;
-}
-
 #logo {
     grid-column-start: 1;
 }
@@ -83,66 +76,10 @@ footer {
     max-width: 200px;
 }
 
-.player_title {
-    margin: 10px;
-}
-.form_subhead {
-    margin-bottom: 5px;
-    margin-left: 10px;
-}
-#player_form_container  > form > label {
-    margin: 10px;
-}
 
-.name_label {
-    margin:10px;
-}
 
-.game_group {
-    margin:10px;
-}
 
-.btn_container {
-    text-align: center;
-    padding: 20px;
-}
 
-.body_btn {
-    padding: 5px 15px;
-    margin: 10px;
-}
-
-.rules_box {
-    font-family: 'Spectral', serif;
-    font-size: xx-large;
-    text-align: center;
-    padding: 20px;
-}
-
-.result_button_container {
-
-    display: flex;
-    justify-content: center;
-}
-
-.results_reveal {
-    display: flex;
-    justify-content: space-around;
-}
-
-.intro_box {
-    font-family: 'Spectral', serif;
-    padding: 20;
-}
-
-.intro_head {
-    font-size: xx-large;
-    margin: 10px;
-}
-
-.intro_content {
-    margin: 10px;
-}
 .caps {
     font-family: 'Spectral SC', serif;
 }

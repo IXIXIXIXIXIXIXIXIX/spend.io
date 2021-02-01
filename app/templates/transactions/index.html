@@ -2,20 +2,17 @@
 
 {% block content %}
 <div class="transactions_panel left_panel primary_colour">
-    <h2 class="player_title"></h2>
-    <p class="player_title">
-        Score:}
-    </p>
-   }
-        <form action="/submit" method="post">
-            <input type="hidden" name="player" value="player1">
-            <label for="p1_choice" class="name_label">Make Your Choice:</label>
-            <select name="p1_choice" id="p1_choice" class="choice" required>
-              }
-                    <option value="{{ answer }}"></option>
-              }
-            </select>
-            <input type="submit" value="Choose" class="custom_btn body_btn">
+        <form action="/viewfilters/addtag" method="post">
+            <label for="filter_tag_choice" class="name_label">Filter by Tag:</label>
+            <span>
+                <select name="filter_tag_choice" class="choice" required>
+                    {% for tag in tags %}
+                        <option value="{{ tag.id }}">{{ tag.name }}</option>
+                    {% endfor %}
+                
+                </select>
+                <input type="submit" value="Filter" class="custom_btn">
+            </span>
         </form>
 </div>
 

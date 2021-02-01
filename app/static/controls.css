@@ -8,6 +8,7 @@
     text-decoration: none;
     border: black solid 2px;
     border-radius: 25px;
+    margin: 10px
 }
 
 .custom_btn:hover {
@@ -22,8 +23,8 @@
 	color: #443;
 	line-height: 0.3;
 	padding: .5em 1.4em .5em .8em;
-	width: 79%;
-	max-width: 99%;
+	width: 40%;
+	max-width: 50%;
 	box-sizing: border-box;
     margin: 9px;
 	border: 0px solid #aaa;
