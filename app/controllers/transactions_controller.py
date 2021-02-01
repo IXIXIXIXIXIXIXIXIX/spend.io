@@ -21,25 +21,55 @@ def transactions():
     for transaction in all_transactions:
         current_user.register_spending(transaction)
 
-        if not (transaction.tag in tag_list):
-            tag_list.append(transaction.tag)
-
-        if transaction.merchant not in merchant_list:
-            merchant_list.append(transaction.merchant)
-
         if current_user.view_filter.filter_active: 
-            if transaction.tag in current_user.view_filter.visible_tags or transaction.merchant in current_user.view_filter.visible_merchants:
+            if transaction.tag.id in current_user.view_filter.tag_ids or transaction.merchant.id in current_user.view_filter.merchant_ids:
                 transactions_list.append(transaction)
-
         else:
             transactions_list.append(transaction)
 
-    return render_template("transactions/index.html", transactions = transactions_list, tags = tag_list, mechants = merchant_list)
+        if transaction.tag.id not in tag_list:
+            tag_list.append(transaction.tag.id)
+
+        if transaction.merchant.id not in merchant_list:
+            merchant_list.append(transaction.merchant.id)
+
+    # Get tags and merchants from ids
+    tags = []
+    merchants = []
+
+    for tag in tag_list:
+        if tag not in current_user.view_filter.tag_ids:
+            tags.append(tag_repository.select(tag))
+    
+    for merchant in merchant_list:
+        if merchant not in current_user.view_filter.merchant_ids:
+            merchants.append(merchant_repository.select(merchant))
+
+    return render_template("transactions/index.html", current_user = current_user, 
+        transactions = transactions_list, tags = tags, merchants = merchants)
 
 
-@transactions_blueprint.route("/transactions/<id>/edit")
+@transactions_blueprint.route("/transactions/<id>/edit", methods=['GET'])
 def edit_transaction(id):
 
     transaction = transaction_repository.select(id)
-    return render_template("/transactions/edit.html", transaction = transaction, current_user = current_user)
+    tags = tag_repository.select_all()
+    return render_template("/transactions/edit.html", transaction = transaction, current_user = current_user, tags = tags)
 
+
+@transactions_blueprint.route("/transactions/<id>/edit", methods=['POST'])
+def update_transaction(id):
+
+    transaction = transaction_repository.select(id)
+    tag = tag_repository.select(request.form['tag_choice'])
+
+    transaction.change_tag(tag)
+    transaction_repository.update(transaction)
+
+    return redirect("/transactions")
+
+@transactions_blueprint.route("/transactions/<id>/delete")
+def delete_transaction(id):
+
+    transaction_repository.delete(id)
+    return redirect("/transactions")

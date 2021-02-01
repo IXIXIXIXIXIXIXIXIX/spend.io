@@ -15,9 +15,46 @@
     background-color: #408090;
     border: grey solid 2px;
 }
+
+.btn_white {
+
+  font-family: 'Fira Sans', sans-serif;
+  background-color: white;
+  color:black;
+  padding: 5px 25px;
+  text-decoration: none;
+  border: black solid 2px;
+  border-radius: 25px;
+  margin: 10px 30px
+}
+
+.btn_white:hover {
+  background-color: lightgrey;
+  
+}
+
+.delete_btn {
+
+  font-family: 'Fira Sans', sans-serif;
+  background-color: white;
+  color:black;
+  padding: 5px 20px;
+  text-decoration: none;
+  border: black solid 2px;
+  border-radius: 25px;
+  margin: 120px 10px;
+
+}
+
+.delete_btn:hover {
+
+  background-color: red;
+
+}
+
 /* Settings for choice inspired by: https://www.filamentgroup.com/lab/select-css.html */
 .choice {
-    display: block;
+  display: block;
 	font-size: 15px;
 	font-weight: 699;
 	color: #443;
@@ -26,13 +63,19 @@
 	width: 40%;
 	max-width: 50%;
 	box-sizing: border-box;
-    margin: 9px;
+  margin: 9px;
 	border: 0px solid #aaa;
 	box-shadow: -1 1px 0 1px rgba(0,0,0,.04);
 	border-radius: .4em;
 
 }
 
+.edit_choice {
+
+  width: 60%;
+  max-width: 70;
+
+}
 
 /* Scrollbar settings */
   /* width */

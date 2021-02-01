@@ -1,7 +1,22 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="transactions panel primary_colour">
-    {{ transaction.merchant.name }}
-</div>
+    <div class="{{ transaction.tag.colour.name }} edit_transaction_box">
+        <span class="list_date edit_item">{{ transaction.date }}</span> 
+        <span class="list_name edit_item">{{ transaction.merchant.name }}</span>
+        <form action="/transactions/{{ transaction.id }}/edit" method="POST" id="edit_form"></form>
+            <select form="edit_form" name="tag_choice" class="choice edit_choice" required>
+                {% for tag in tags %}
+                    <option form="edit_form" value="{{ tag.id }}" {% if tag.id == transaction.tag.id %} selected {% endif %}>
+                        {{ tag.name }}
+                    </option>
+                {% endfor %}
+            </select>
+            <input form="edit_form" type="submit" class="btn_white" value="Edit">
+        <span class="amount edit_item">£{{transaction.amount }}</span>
+    </div>
+    <form action="/transactions/{{ transaction.id }}/delete">
+        <input type="submit" class="delete_btn" value="Delete">
+    </form>
+    
 {% endblock %}

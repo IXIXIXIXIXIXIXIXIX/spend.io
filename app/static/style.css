@@ -12,8 +12,8 @@ main {
 }
 
 header {
-    display: grid;
-    grid-template-columns: 9fr 1fr;
+    display: flex;
+    justify-content: space-between;
     font-family: 'Fira Sans', sans-serif;
     padding-top: 20px;
     padding-bottom: 20px;
@@ -29,7 +29,7 @@ header {
 }
 
 #logo {
-    grid-column-start: 1;
+    font-family: 'Spectral', serif;
 }
 
 .styled_link {
@@ -38,9 +38,7 @@ header {
 }
 
 nav {
-    grid-column-start: 2;
-    vertical-align:middle;
-    padding-top: 15px;
+    display: flex;
 }
 
 footer {
@@ -73,12 +71,41 @@ footer {
 
 .right_panel {
     flex-grow:1;
-    max-width: 200px;
+    max-width: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding:  20px;
+
 }
 
+.statblock {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 
+}
 
+.button_container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
 
+.edit_transaction_box {
+
+    display: flex;
+    width: 50%;
+    margin: 100px 20px;
+    border-radius: 10px;
+    padding: 10px;
+    
+}
+
+.edit_item {
+
+    margin: 20px;
+}
 
 .caps {
     font-family: 'Spectral SC', serif;

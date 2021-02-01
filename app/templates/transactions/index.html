@@ -2,20 +2,51 @@
 
 {% block content %}
 <div class="transactions_panel left_panel primary_colour">
-        <form action="/viewfilters/addtag" method="post">
-            <label for="filter_tag_choice" class="name_label">Filter by Tag:</label>
-            <span>
-                <select name="filter_tag_choice" class="choice" required>
-                    {% for tag in tags %}
-                        <option value="{{ tag.id }}">{{ tag.name }}</option>
-                    {% endfor %}
-                
-                </select>
-                <input type="submit" value="Filter" class="custom_btn">
-            </span>
+    <div class="filter_dropdowns">
+        <div class="selector_group">
+            <form action="/viewfilters/addtag" method="post">
+                <label for="filter_tag_choice" class="name_label">Filter by Tag:</label>
+                <span>
+                    <select name="filter_tag_choice" class="choice" required>
+                        {% for tag in tags %}
+                            <option value="{{ tag.id }}">{{ tag.name }}</option>
+                        {% endfor %}
+                    
+                    </select>
+                    <input type="submit" value="Filter" class="custom_btn">
+                </span>
+            </form>
+        </div>
+        <div class="selector_group">
+            <form action="/viewfilters/addmerchant" method="post">
+                <label for="filter_merchant_choice" class="name_label">Filter by Merchant:</label>
+                <span>
+                    <select name="filter_merchant_choice" class="choice" required>
+                        {% for merchant in merchants %}
+                            <option value="{{ merchant.id }}">{{ merchant.name }}</option>
+                        {% endfor %}
+                    
+                    </select>
+                    <input type="submit" value="Filter" class="custom_btn">
+                </span>
+            </form>
+        </div>
+    </div>
+
+    <div class="filter_group">
+        {% for tag in current_user.view_filter.tags %}
+            <a href="/viewfilters/{{ tag.id }}/removetag" class="list_link_dedecorate">
+                <span class="filter">{{ tag.name }}</span></a>
+        {% endfor %}
+        {% for merchant in current_user.view_filter.merchants %}
+            <a href="/viewfilters/{{ merchant.id }}/removemerchant" class="list_link_dedecorate">
+                <span class="filter">{{ merchant.name }}</span></a>
+        {% endfor %}
+    </div>
+        <form action="/viewfilters/resetfilter">
+            <input type="submit" class="custom_btn" value="Clear Filter">
         </form>
 </div>
-
 
 <div class="transaction_container">
     {% for transaction in transactions %}
@@ -32,5 +63,17 @@
         </a>
     {% endfor %}
 </div>
-<div class="transactions_panel right_panel primary_colour"><h1>Stats</h1></div>
+<div class="transactions_panel right_panel primary_colour">
+    <div class="statblock">
+        <div class="stathead"><b>Budget: </b></div><div class="stat">£{{ current_user.budget }}</div>
+    </div>
+    <div class="statblock">
+        <div class="stathead"><b>Remaining: </b></div><div class="stat">£{{ current_user.remaining_budget }}</div>
+    </div>
+    <form action="/user/edit" method="GET">
+        <div class="button_container">
+            <input type="submit" value="Change Budget" class="custom_btn">
+        </div>
+    </form>
+</div>
 {% endblock %}

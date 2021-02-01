@@ -7,8 +7,8 @@ DROP TABLE IF EXISTS colours;
 CREATE TABLE users (
     id SERIAL PRIMARY KEY,
     name VARCHAR(255),
-    budget NUMERIC,
-    remaining_budget NUMERIC
+    budget NUMERIC(12, 2),
+    remaining_budget NUMERIC(12, 2)
 );
 
 CREATE TABLE colours (
@@ -39,8 +39,5 @@ CREATE TABLE transactions (
     amount NUMERIC(12,2)
 );
 
--- INSERT INTO colours (name) VALUES ('black');
--- INSERT INTO colours (name) VALUES ('red');
--- INSERT INTO colours (name) VALUES ('green');
--- INSERT INTO colours (name) VALUES ('blue');
--- INSERT INTO colours (name) VALUES ('purple');
+INSERT INTO users (name, budget, remaining_budget) VALUES ('Scott', 2000.00, 2000.00);
+

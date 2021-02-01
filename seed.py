@@ -52,7 +52,6 @@ tag4 = Tag("Impulse Buys", colour_repository.select_by_name("red"), True, False)
 tag_repository.save(tag1)
 tag_repository.save(tag2)
 tag_repository.save(tag3)
-tag_repository.save(tag3)
 tag_repository.save(tag4)
 
 
