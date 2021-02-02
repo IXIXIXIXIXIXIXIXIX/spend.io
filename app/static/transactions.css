@@ -63,3 +63,24 @@
 .statblock {
     border-radius: 5px;
 }
+
+.filter_group {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    height: fit-content;
+}
+
+.filter_group > a {
+    margin: 5px;
+
+}
+
+.filter {
+
+    font-size: small;
+    border: solid black 1px;
+    border-radius: 5px;
+    padding: 3px;
+}

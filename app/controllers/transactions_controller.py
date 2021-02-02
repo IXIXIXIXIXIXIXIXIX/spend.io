@@ -116,3 +116,10 @@ def save_transaction():
     transaction_repository.save(transaction)
 
     return redirect(request.referrer)
+
+@transactions_blueprint.route("/transactions/delete")
+def delete_all_transactions():
+    current_user.reset_budget()
+    transaction_repository.delete_all()
+
+    return redirect(request.referrer)

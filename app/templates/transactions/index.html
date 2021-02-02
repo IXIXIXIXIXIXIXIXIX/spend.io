@@ -36,16 +36,18 @@
     <div class="filter_group">
         {% for tag in current_user.view_filter.tags %}
             <a href="/viewfilters/{{ tag.id }}/removetag" class="list_link_dedecorate">
-                <span class="filter">{{ tag.name }}</span></a>
+                <span class="filter">{{ tag.name }} <i class="fas fa-backspace"></i></span></a>
         {% endfor %}
         {% for merchant in current_user.view_filter.merchants %}
             <a href="/viewfilters/{{ merchant.id }}/removemerchant" class="list_link_dedecorate">
-                <span class="filter">{{ merchant.name }}</span></a>
+                <span class="filter">{{ merchant.name }} <i class="fas fa-backspace"></i></span></a>
         {% endfor %}
     </div>
-        <form action="/viewfilters/resetfilter">
-            <input type="submit" class="custom_btn" value="Clear Filter">
-        </form>
+        {% if current_user.view_filter.filter_active %}
+            <form action="/viewfilters/resetfilter">
+                <input type="submit" class="custom_btn" value="Clear Filter">
+            </form>
+        {% endif %}
 </div>
 
 <div class="transaction_container">
@@ -70,11 +72,19 @@
     <div class="statblock {% if current_user.remaining_budget <= 0 %}red{% endif %}">
         <div class="stathead">
             <b>Remaining: </b></div><div class="stat">£{{ current_user.remaining_budget }}</div>
+    </div><br>
+    <div class="statblock">
+        <div class="stathead"><b>Total Selected: </b></div>
+        <div class="stat">£{{ visible_total }}</div>
     </div>
-    <form action="/user/edit" method="GET">
-        <div class="button_container">
-            <input type="submit" value="Change Budget" class="custom_btn">
-        </div>
-    </form>
+    <div class="budget_form">
+        <form action="/user/edit" method="POST">        
+            <label for="amount" class="new_trans_label">New Budget Amount:</label><br>
+            <span class="amount_in">£<input type="number" min="0.01" step="any" name="amount" id="amount" required></span>
+            <div class="button_container">
+                <input type="submit" value="Change Budget" class="custom_btn">
+            </div>
+        </form>
+    </div>
 </div>
 {% endblock %}
