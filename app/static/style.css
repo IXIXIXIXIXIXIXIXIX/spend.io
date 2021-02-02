@@ -6,6 +6,7 @@ body {
 
 main {
     display:flex;
+    flex-wrap: wrap;
     justify-content: space-evenly;
     /* min-height: calc(100vh - 115px); */
 
@@ -62,6 +63,7 @@ footer {
     overflow-x:hidden;
     overflow-y: auto;
     box-shadow: 5px 5px lightgray;
+    padding: 20px;
 }
 
 .left_panel {
@@ -69,6 +71,9 @@ footer {
     flex-grow: 1;
 }
 
+.left_panel label {
+    margin: 10px;
+}
 .right_panel {
     flex-grow:1;
     max-width: 300px;
