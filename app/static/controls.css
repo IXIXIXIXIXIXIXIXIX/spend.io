@@ -52,6 +52,22 @@
 
 }
 
+.header_delete_btn {
+
+  font-family: 'Fira Sans', sans-serif;
+  color:black;
+  padding: 5px 20px;
+  text-decoration: none;
+  border: black solid 2px;
+  border-radius: 25px;
+
+}
+
+.header_delete_btn:hover {
+
+  background-color: red;
+
+}
 /* Settings for choice inspired by: https://www.filamentgroup.com/lab/select-css.html */
 .choice {
   display: block;
@@ -116,4 +132,40 @@
 .active_check {
 
   margin-top:15px
+}
+
+.input_date {
+  
+  display: block;
+	font-size: 15px;
+	font-weight: 699;
+	color: #443;
+	padding: .5em 1.4em .5em .8em;
+	width: 90%;
+	max-width: 90%;
+	box-sizing: border-box;
+  margin: 9px;
+	border: 0px solid #aaa;
+	border-radius: .4em;
+
+}
+
+.amount_in {
+  background-color: white;
+	font-size: 15px;
+	font-weight: 699;
+	color: #443;
+	padding: .5em 1.4em .5em .8em;
+	box-sizing: border-box;
+  margin: 9px;
+	border: 0px solid #aaa;
+	border-radius: .4em;
+}
+
+.amount_in > input {
+  border: none; 
+	font-size: 15px;
+	font-weight: 699;
+	color: #443;
+  margin: 9px;
 }

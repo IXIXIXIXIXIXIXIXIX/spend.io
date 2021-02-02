@@ -1,11 +1,13 @@
 from flask import Flask, render_template, request, redirect, Blueprint
 import decimal
+import datetime
 import app.repositories.user_repository as user_repository
 import app.repositories.colour_repository as colour_repository
 import app.repositories.tag_repository as tag_repository
 import app.repositories.merchant_repository as merchant_repository
 import app.repositories.transaction_repository as transaction_repository
 from app.models.user_assets import current_user
+from app.models.transaction import Transaction
 
 transactions_blueprint = Blueprint("transactions", __name__)
 
@@ -22,7 +24,7 @@ def transactions():
     all_transactions = transaction_repository.select_all()
     transactions_list = []
 
-    # Register every transaction in month with user
+    # Register every active transaction with user
     for transaction in all_transactions:
         current_user.register_spending(transaction)
 
@@ -52,12 +54,15 @@ def transactions():
         if merchant not in current_user.view_filter.merchant_ids:
             merchants.append(merchant_repository.select(merchant))
 
+    sorted_transactions = sorted(transactions_list, key=lambda transaction: transaction.date, reverse=True)
+
     return render_template("transactions/index.html", current_user = current_user, visible_total = visible_total, 
-        transactions = transactions_list, tags = tags, merchants = merchants)
+        transactions = sorted_transactions, tags = tags, merchants = merchants)
 
 
 @transactions_blueprint.route("/transactions/<id>/edit", methods=['GET'])
 def edit_transaction(id):
+# Shows form for editing and deleting individual transaction
 
     transaction = transaction_repository.select(id)
     tags = tag_repository.select_all()
@@ -66,6 +71,7 @@ def edit_transaction(id):
 
 @transactions_blueprint.route("/transactions/<id>/edit", methods=['POST'])
 def update_transaction(id):
+# Saves edited transaction
 
     transaction = transaction_repository.select(id)
     tag = tag_repository.select(request.form['tag_choice'])
@@ -77,6 +83,36 @@ def update_transaction(id):
 
 @transactions_blueprint.route("/transactions/<id>/delete")
 def delete_transaction(id):
+# Deletes a transaction
 
     transaction_repository.delete(id)
     return redirect("/transactions")
+
+@transactions_blueprint.route("/transaction/new")
+def new_transaction():
+# Displays new transaction form
+
+    merchants = merchant_repository.select_active()
+    tags = tag_repository.select_active()
+
+    return render_template("/transactions/new.html", merchants = merchants, tags = tags)
+
+
+@transactions_blueprint.route("/transactions", methods=['post'])
+def save_transaction():
+# Saves new transaction
+    
+    merchant = merchant_repository.select(request.form['merchant_id'])
+    amount = decimal.Decimal(request.form['amount'])
+    date =  request.form['date']
+    tag_id = request.form['tag_id']
+
+    if tag_id == "None":
+        tag = None
+    else:
+        tag = tag_repository.select(tag_id)    
+
+    transaction = Transaction(merchant, amount, date, tag)
+    transaction_repository.save(transaction)
+
+    return redirect(request.referrer)

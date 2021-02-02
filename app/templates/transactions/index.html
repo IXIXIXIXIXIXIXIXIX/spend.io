@@ -52,7 +52,7 @@
     {% for transaction in transactions %}
         <a href="/transactions/{{ transaction.id }}/edit" class="list_link_dedecorate">
             <div class="transaction_box {{ transaction.tag.colour.name }}">
-                <span class="list_date">{{ transaction.date }}</span> 
+                <span class="list_date">{{ transaction.date.strftime('%d-%m-%Y') }}</span> 
                 <span class="list_name">{{ transaction.merchant.name }}</span> 
                 <span class="tag_spacer">
                     {% if transaction.tag.name != "Untagged" %}
@@ -67,8 +67,9 @@
     <div class="statblock">
         <div class="stathead"><b>Budget: </b></div><div class="stat">£{{ current_user.budget }}</div>
     </div>
-    <div class="statblock">
-        <div class="stathead"><b>Remaining: </b></div><div class="stat">£{{ current_user.remaining_budget }}</div>
+    <div class="statblock {% if current_user.remaining_budget <= 0 %}red{% endif %}">
+        <div class="stathead">
+            <b>Remaining: </b></div><div class="stat">£{{ current_user.remaining_budget }}</div>
     </div>
     <form action="/user/edit" method="GET">
         <div class="button_container">

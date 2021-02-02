@@ -55,3 +55,11 @@
     text-decoration: none;
     color: inherit;
 }
+
+.new_trans_label {
+    margin: 10px;
+}
+
+.statblock {
+    border-radius: 5px;
+}

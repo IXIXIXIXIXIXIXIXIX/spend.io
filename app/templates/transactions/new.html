@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="transactions_panel primary_colour">
+
+    <form action="/transactions" method="POST">
+        <label for="date" class="new_trans_label">Transaction Date:</label>
+        <input type="date" name="date" class="input_date" required><br>
+
+        <label for="merchant_id" class="new_trans_label">Merchant: </label>
+        <select name="merchant_id" id="merchant_id" class="choice new_tag_colour" required>
+            {% for merchant in merchants %}
+            <option value="{{ merchant.id }}">{{ merchant.name }}</option>
+            {% endfor %}
+        </select>
+
+        <label for="tag_id" class="new_trans_label">Tag: </label>
+        <select name="tag_id" id="tag_id" class="choice new_tag_colour" required>
+            <option value="None" selected>Merchant Default</option>
+            {% for tag in tags %}
+            <option value="{{ tag.id }}">{{ tag.name }}</option>
+            {% endfor %}
+        </select>
+        <label for="amount" class="new_trans_label">Transaction Amount:</label><br>
+        <span class="amount_in">£<input type="number" min="0.01" step="any" name="amount" id="amount" required></span>
+        <input type="submit" class="custom_btn">
+    </form>
+
+
+</div>
+{% endblock %}
