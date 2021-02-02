@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request, redirect, Blueprint
+import decimal
 import app.repositories.user_repository as user_repository
 import app.repositories.colour_repository as colour_repository
 import app.repositories.tag_repository as tag_repository
@@ -10,7 +11,11 @@ transactions_blueprint = Blueprint("transactions", __name__)
 
 @transactions_blueprint.route("/transactions")
 def transactions():
+# Shows transactions and allows filtering
 
+    current_user.reset_budget()
+
+    visible_total = decimal.Decimal(0.00)
     tag_list = []
     merchant_list = []
 
@@ -24,8 +29,10 @@ def transactions():
         if current_user.view_filter.filter_active: 
             if transaction.tag.id in current_user.view_filter.tag_ids or transaction.merchant.id in current_user.view_filter.merchant_ids:
                 transactions_list.append(transaction)
+                visible_total += transaction.amount
         else:
             transactions_list.append(transaction)
+            visible_total += transaction.amount
 
         if transaction.tag.id not in tag_list:
             tag_list.append(transaction.tag.id)
@@ -45,7 +52,7 @@ def transactions():
         if merchant not in current_user.view_filter.merchant_ids:
             merchants.append(merchant_repository.select(merchant))
 
-    return render_template("transactions/index.html", current_user = current_user, 
+    return render_template("transactions/index.html", current_user = current_user, visible_total = visible_total, 
         transactions = transactions_list, tags = tags, merchants = merchants)
 
 

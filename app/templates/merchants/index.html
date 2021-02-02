@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="addtag_panel primary_colour">
+    <form action="/merchants" method="POST">
+    <label for="new_merchant_name">New Merchant Name: </label><br>
+    <input type="text" id="new_merchant_name" class="new_name" name="new_merchant_name" maxlength="16" required><br>
+    <label for="new_default_tag" class="new_name">Default Tag:</label>
+    <select name="new_default_tag" id="new_default_tag" class="choice new_tag_colour" required>
+        {% for tag in tags %}
+            <option value="{{ tag.id }}"{% if tag.name == 'Untagged' %} selected {% endif %}>
+                {{ tag.name }}
+            </option>
+        {% endfor %}
+    </select>
+    <input type="submit" class="custom_btn" value="Save New Merchant">
+    </form>
+
+</div>
+
+<div class="taglist_container">
+    {% for merchant in merchants %}
+
+        <div class="tag_box {{ merchant.default_tag.colour.name }}">
+            <span class="tagname_box">{{ merchant.name }}</span>
+            
+            <form action="/merchants/{{ merchant.id }}/edit" method="POST" id="edit_form_{{ merchant.id }}"></form>
+            <select form="edit_form_{{ merchant.id }}" name="tag_choice" class="choice tag_colour_choice" required>
+            {% for tag in tags %}
+                <option form="edit_form_{{ merchant.id }}" value="{{ tag.id }}"{% if tag.id == merchant.default_tag.id %} selected {% endif %}>
+                    {{ tag.name }}
+                </option>
+            {% endfor %}
+            </select>
+            <span class="tag_spacer">
+                <label for="active" class="active_ch_label">Active:</label>
+                <input type="checkbox" class="active_check" 
+                form="edit_form_{{ merchant.id }}" name="is_active" value="is_active" {% if merchant.active %}checked{% endif %}>
+            </span>
+            <input form="edit_form_{{ merchant.id }}" type="submit" class="btn_white" value="Edit">
+        </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

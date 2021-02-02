@@ -41,6 +41,21 @@ def select(id):
     return transaction
 
 
+def select_by_merchant_id(merchant_id):
+    transactions = []
+
+    sql = "SELECT * FROM transactions WHERE merchant_id = %s"
+    values = [merchant_id]
+    results = run_sql(sql, values)
+
+    for row in results:
+        tag = tag_repository.select(row['tag_id'])
+        merchant = merchant_repository.select(merchant_id)
+        transaction = Transaction(merchant, row['amount'], row['datestamp'], tag, row['id'])
+        transactions.append(transaction)
+
+    return transactions
+
 def delete_all():
     sql = "DELETE FROM transactions"
     run_sql(sql)

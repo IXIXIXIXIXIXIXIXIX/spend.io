@@ -17,3 +17,6 @@ class Transaction:
     def change_tag(self, tag):
         self.tag = tag
 
+    def to_default_tag(self):
+        self.change_tag(self.merchant.default_tag)
+

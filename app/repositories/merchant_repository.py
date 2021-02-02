@@ -24,6 +24,18 @@ def select_all():
     return merchants 
 
 
+def select_active():
+    merchants = []
+
+    sql = "SELECT * FROM merchants WHERE active = true"
+    results = run_sql(sql)
+
+    for row in results:
+        tag = tag_repository.select(row['default_tag_id'])
+        merchant = Merchant(row['name'], tag, row['active'], row['id'])
+        merchants.append(merchant)
+
+    return merchants 
 def select(id):
     merchant = None
 

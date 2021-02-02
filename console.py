@@ -42,7 +42,7 @@ colour_repository.save(colour7)
 colour_repository.save(colour8)
 colour_repository.save(colour9)
 
-tag1 = Tag("Untagged", colour_repository.select_by_name("white"), True, True)
+tag1 = Tag("Untagged", colour_repository.select_by_name("pink"), True, True)
 tag2 = Tag("Groceries", colour_repository.select_by_name("yellow"), True, False)
 
 tag_repository.save(tag1)
@@ -54,6 +54,9 @@ tag_repository.update(tag2)
 merchant1 = Merchant("Tesco", tag_repository.select_by_name("Untagged"))
 merchant_repository.save(merchant1)
 
+merchant2 = Merchant("Gamestop", tag_repository.select_by_name("Untagged"))
+merchant_repository.save(merchant2)
+
 merchant1.change_default(tag2)
 merchant_repository.update(merchant1)
 
@@ -63,8 +66,8 @@ transaction3 = Transaction(merchant1, 3.00, "2121-01-29")
 transaction4 = Transaction(merchant1, 3.00, "2121-01-15")
 transaction5 = Transaction(merchant1, 3.00, "2121-01-15")
 transaction6 = Transaction(merchant1, 3.00, "2121-01-15")
-transaction7 = Transaction(merchant1, 10.00, "2121-01-15")
-transaction8 = Transaction(merchant1, 3.00, "2121-01-15")
+transaction7 = Transaction(merchant2, 10.00, "2121-01-15")
+transaction8 = Transaction(merchant2, 3.00, "2121-01-15")
 transaction9 = Transaction(merchant1, 3.00, "2121-01-15")
 transaction10 = Transaction(merchant1, 3.00, "2121-01-15")
 transaction11 = Transaction(merchant1, 3.00, "2121-01-15")
@@ -99,6 +102,7 @@ transaction_repository.save(transaction20)
 transaction_repository.save(transaction10)
 
 user1.register_spending(transaction1)
-
+merchant1.deactivate()
+merchant_repository.update(merchant1)
 
 pdb.set_trace()

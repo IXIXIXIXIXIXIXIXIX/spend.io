@@ -39,12 +39,9 @@
     box-shadow: 5px 5px lightgray;
 }
 
-#new_tag_name {
+.new_name {
     margin: 10px;
 	border-radius: .4em;
-	font-size: 15px;
-	font-weight: 699;
-	color: #443;
 	line-height: 0.3;
 }
 

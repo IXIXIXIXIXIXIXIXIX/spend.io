@@ -23,6 +23,18 @@ def select_all():
 
     return tags
 
+def select_active():
+    tags = []
+
+    sql = "SELECT * FROM tags WHERE active = true"
+    results = run_sql(sql)
+
+    for row in results:
+        colour = colour_repository.select(row['colour_id'])
+        tag = Tag(row['name'], colour, row['active'], row['reserved'], row['id'])
+        tags.append(tag)
+
+    return tags
 
 def select(id):
     tag = None
