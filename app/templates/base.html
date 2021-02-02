@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='transactions.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='controls.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='tags.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='tag_routes.css') }}">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Fira+Sans&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Spectral+SC&family=Spectral:wght@400;500&display=swap" rel="stylesheet">  
@@ -15,9 +16,9 @@
 <body>
     <header class="primary_colour">
         <div id="logo"><a href="/" class="styled_link"><span id="header_main">Sp£nd.10</span></a></div>
-        
+       
         <nav><a href="/transactions" class="custom_btn">Manage Merchants</a>
-        <a href="/transactions" class="custom_btn">Manage Tags</a>
+        <a href="/tags" class="custom_btn">Manage Tags</a>
         <a href="/transactions" class="custom_btn">Add Transactions</a>
         <a href="/transactions" class="custom_btn">Historic Transactions</a>
         <a href="/transactions" class="custom_btn">View Transactions</a></nav>

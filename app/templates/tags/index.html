@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="addtag_panel primary_colour">
+    <form action="/tags" method="POST">
+    <label for="new_tag_name">New Tag Name: </label><br>
+    <input type="text" id="new_tag_name" name="new_tag_name" maxlength="12" required>
+    <select name="new_tag_colour" id="new_tag_colour" class="choice new_tag_colour" required>
+        {% for colour in colours %}
+            <option value="{{ colour.id }}"{% if colour.name == 'black' %} selected {% endif %}>
+                {{ colour.name }}
+            </option>
+        {% endfor %}
+    </select>
+    <input type="submit" class="custom_btn" value="Save New Tag">
+    </form>
+
+</div>
+
+<div class="taglist_container">
+    {% for tag in tags %}
+
+        <div class="tag_box {{ tag.colour.name }}">
+            <span class="tagname_box">{{ tag.name }}</span>
+            
+            <form action="/tags/{{ tag.id }}/edit" method="POST" id="edit_form_{{ tag.id }}"></form>
+            <select form="edit_form_{{ tag.id }}" name="colour_choice" class="choice tag_colour_choice" required>
+            {% for colour in colours %}
+                <option form="edit_form_{{ tag.id }}" value="{{ colour.id }}"{% if colour.id == tag.colour.id %} selected {% endif %}>
+                    {{ colour.name }}
+                </option>
+            {% endfor %}
+            </select>
+            <span class="tag_spacer">
+            {% if not tag.reserved %}
+                <label for="active" class="active_ch_label">Active:</label>
+                <input type="checkbox" class="active_check" 
+                form="edit_form_{{ tag.id }}" name="is_active" value="is_active" {% if tag.active %}checked{% endif %}>
+            {% endif %}
+            </span>
+            <input form="edit_form_{{ tag.id }}" type="submit" class="btn_white" value="Edit">
+        </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

@@ -77,6 +77,15 @@
 
 }
 
+.tag_colour_choice {
+  width: 30%;
+  max-width: 30%;
+}
+
+.new_tag_colour {
+  width: 90%;
+  max-width: 90%;
+}
 /* Scrollbar settings */
   /* width */
 ::-webkit-scrollbar {
@@ -99,3 +108,12 @@
     background: #408090;
   } 
 
+.active_ch_label {
+
+  margin-left: 30px
+}
+
+.active_check {
+
+  margin-top:15px
+}

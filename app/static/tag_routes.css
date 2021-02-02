@@ -1,0 +1,54 @@
+.taglist_container {
+
+    width: 1000px;
+    height: 70vh;
+    margin: 50px 50px 100px 50px;
+    overflow-x:hidden;
+    overflow-y: auto;
+    background-color: white;
+
+}
+
+.tag_box {
+
+    display: flex;
+    justify-content: space-around;
+    text-align: left;
+    padding: 20px;
+    margin: 5px 100px;
+    border-radius: 10px
+}
+
+.tagname_box {
+
+    padding: 20px;
+    max-width: 25%;
+    width: 20%;
+}
+
+.addtag_panel {
+
+    display: flex;
+    justify-content: right;
+    font-family: 'Fira Sans', sans-serif;
+    padding: 20px;
+    height: fit-content;
+    margin: 50px 30px 50px 30px;
+    overflow-x:hidden;
+    overflow-y: auto;
+    box-shadow: 5px 5px lightgray;
+}
+
+#new_tag_name {
+    margin: 10px;
+	border-radius: .4em;
+	font-size: 15px;
+	font-weight: 699;
+	color: #443;
+	line-height: 0.3;
+}
+
+.addtag_panel label {
+    margin: 10px;
+
+}
