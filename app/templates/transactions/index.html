@@ -33,7 +33,7 @@
         </div>
     </div>
 
-    <div class="filter_group">
+    <div class="filter_group caps">
         {% for tag in current_user.view_filter.tags %}
             <a href="/viewfilters/{{ tag.id }}/removetag" class="list_link_dedecorate">
                 <span class="filter">{{ tag.name }} <i class="fas fa-backspace"></i></span></a>
@@ -79,7 +79,7 @@
     </div>
     <div class="budget_form">
         <form action="/user/edit" method="POST">        
-            <label for="amount" class="new_trans_label">New Budget Amount:</label><br>
+            <div class="new_trans_label">New Budget Amount:</div><br>
             <span class="amount_in">£<input type="number" min="0.01" step="any" name="amount" id="amount" required></span>
             <div class="button_container">
                 <input type="submit" value="Change Budget" class="custom_btn">

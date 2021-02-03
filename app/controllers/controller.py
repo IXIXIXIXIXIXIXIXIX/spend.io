@@ -1,7 +1,6 @@
 from app import app
-from flask import render_template
+from flask import render_template, redirect
 
 @app.route('/')
 def index():
-	return render_template('index.html')
-	# Change this route, obviously
+	return redirect("/transactions")

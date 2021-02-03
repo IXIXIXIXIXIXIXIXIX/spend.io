@@ -70,9 +70,9 @@
     background-color: yellow;
 }
 
-.red .taglabel {
+.yellow .taglabel {
 
-    background-color: red;
+    background-color: yellow;
     color: black;
 }
 .purple {
@@ -84,9 +84,9 @@
     background-color: purple;
 }
 
-.red .taglabel {
+.purple .taglabel {
 
-    background-color: red;
+    background-color: purple;
     color: black;
 }
 .pink {
@@ -98,9 +98,9 @@
     background-color: hotpink;
 }
 
-.red .taglabel {
+.pink .taglabel {
 
-    background-color: red;
+    background-color: hotpink;
     color: black;
 }
 .deepblue {

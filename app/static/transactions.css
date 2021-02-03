@@ -1,7 +1,8 @@
  .transaction_box {
 
-    display: flex;
-    justify-content: flex-end;
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+
     text-align: left;
     padding: 10px;
     margin: 5px 100px;
@@ -57,7 +58,7 @@
 }
 
 .new_trans_label {
-    margin: 10px;
+    margin-top: 20px;
 }
 
 .statblock {
@@ -74,7 +75,6 @@
 
 .filter_group > a {
     margin: 5px;
-
 }
 
 .filter {

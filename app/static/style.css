@@ -8,7 +8,6 @@ main {
     display:flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
-    /* min-height: calc(100vh - 115px); */
 
 }
 
@@ -22,7 +21,7 @@ header {
 }
 
 .primary_colour {
-    background-color: cadetblue;
+    background-color: lightblue;
 }
 #header_main {
     font-size: xx-large;
@@ -122,3 +121,5 @@ footer {
 
     margin-top:30px;
 }
+
+

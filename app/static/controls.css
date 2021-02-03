@@ -2,7 +2,7 @@
 .custom_btn {
 
     font-family: 'Fira Sans', sans-serif;
-    background-color: cadetblue;
+    background-color: lightblue;
     color:black;
     padding: 5px 10px;
     text-decoration: none;
@@ -49,17 +49,6 @@
 .delete_btn:hover {
 
   background-color: red;
-
-}
-
-.header_delete_btn {
-
-  font-family: 'Fira Sans', sans-serif;
-  color:black;
-  padding: 5px 20px;
-  text-decoration: none;
-  border: black solid 2px;
-  border-radius: 25px;
 
 }
 
@@ -115,7 +104,7 @@
   
   /* Handle */
   ::-webkit-scrollbar-thumb {
-    background: cadetblue;
+    background: lightblue;
     border-radius: 4px;
   }
   
@@ -157,7 +146,7 @@
 	color: #443;
 	padding: .5em 1.4em .5em .8em;
 	box-sizing: border-box;
-  margin: 9px;
+  margin-top: 15px;
 	border: 0px solid #aaa;
 	border-radius: .4em;
 }

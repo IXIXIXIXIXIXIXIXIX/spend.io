@@ -2,8 +2,8 @@
 
 {% block content %}
     <div class="{{ transaction.tag.colour.name }} edit_transaction_box">
-        <span class="list_date edit_item">{{ transaction.date.strftime('%d-%m-%Y') }}</span> 
-        <span class="list_name edit_item">{{ transaction.merchant.name }}</span>
+        <span class="list_date edit_item caps">{{ transaction.date.strftime('%d-%m-%Y') }}</span> 
+        <span class="list_name edit_item caps">{{ transaction.merchant.name }}</span>
         <form action="/transactions/{{ transaction.id }}/edit" method="POST" id="edit_form"></form>
             <select form="edit_form" name="tag_choice" class="choice edit_choice" required>
                 {% for tag in tags %}
